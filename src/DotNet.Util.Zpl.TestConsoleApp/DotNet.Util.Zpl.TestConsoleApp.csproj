@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>22.08.17.1350</AssemblyVersion>
+    <FileVersion>22.08.17.1350</FileVersion>
+    <Version>22.08.17.1350</Version>
   </PropertyGroup>
 
   <ItemGroup>
