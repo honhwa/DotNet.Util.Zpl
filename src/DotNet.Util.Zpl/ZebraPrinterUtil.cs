@@ -336,37 +336,37 @@ namespace DotNet.Util
         #region 日志记录方法  
         private static void WriteLog(string text, LogType logType)
         {
-            string endTag = string.Format("\r\n{0}\r\n", new string('=', 80));
-            string path = string.Format("{0}\\{1}-{2}.log", LogsDirectory, DateTime.Now.ToString("yyyy-MM-dd"), logType);
+            string endTag = $"\r\n{new string('=', 80)}\r\n";
+            string path = $"{LogsDirectory}\\{DateTime.Now:yyyy-MM-dd}-{logType}.log";
             if (!Directory.Exists(LogsDirectory))
             {
                 Directory.CreateDirectory(LogsDirectory);
             }
             if (logType == LogType.Error)
             {
-                File.AppendAllText(path, string.Format("{0}{1}", text, endTag), Encoding.UTF8);
+                File.AppendAllText(path, $"{text}{endTag}", Encoding.UTF8);
             }
             if (logType == LogType.Print)
             {
-                File.AppendAllText(path, string.Format("{0}{1}", text, endTag), Encoding.UTF8);
+                File.AppendAllText(path, $"{text}{endTag}", Encoding.UTF8);
             }
         }
 
         private static void WriteLog(byte[] bytes, LogType logType)
         {
-            string endTag = string.Format("\r\n{0}\r\n", new string('=', 80));
-            string path = string.Format("{0}\\{1}-{2}.log", LogsDirectory, DateTime.Now.ToString("yyyy-MM-dd"), logType);
+            string endTag = $"\r\n{new string('=', 80)}\r\n";
+            string path = $"{LogsDirectory}\\{DateTime.Now:yyyy-MM-dd}-{logType}.log";
             if (!Directory.Exists(LogsDirectory))
             {
                 Directory.CreateDirectory(LogsDirectory);
             }
             if (logType == LogType.Error)
             {
-                File.AppendAllText(path, string.Format("{0}{1}", Encoding.UTF8.GetString(bytes), endTag), Encoding.UTF8);
+                File.AppendAllText(path, $"{Encoding.UTF8.GetString(bytes)}{endTag}", Encoding.UTF8);
             }
             if (logType == LogType.Print)
             {
-                File.AppendAllText(path, string.Format("{0}{1}", Encoding.UTF8.GetString(bytes), endTag), Encoding.UTF8);
+                File.AppendAllText(path, $"{Encoding.UTF8.GetString(bytes)}{endTag}", Encoding.UTF8);
             }
         }
         #endregion
